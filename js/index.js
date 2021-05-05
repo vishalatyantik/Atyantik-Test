@@ -1,3 +1,13 @@
+/* -------------------------------------------------------------------------- */
+/*                                  Preloader                                 */
+/* -------------------------------------------------------------------------- */
+
+$(window).bind('beforeunload', function () {
+	$('.preloader').addClass('loading');
+});
+$(window).bind('load', function () {
+	$('.preloader').removeClass('loading');
+});
 $(document).ready(function () {
 	/* -------------------------------------------------------------------------- */
 	/*                              Home Hero Slider                              */
