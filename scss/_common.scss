@@ -31,4 +31,10 @@
 		background-color: transparent;
 		color: $green;
 	}
+	@include MQ(M) {
+		width: auto;
+		min-width: initial;
+		height: auto;
+		padding: 0.75rem 1.5rem;
+	}
 }

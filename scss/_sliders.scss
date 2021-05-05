@@ -30,10 +30,15 @@
 	}
 	@include MQ(M) {
 		.swiper-slide {
-			height: vw(600px);
+			.slider_content {
+				height: vw(800px);
+			}
 		}
 		h2 {
 			font-size: 24px;
+		}
+		p {
+			margin-bottom: 1em;
 		}
 	}
 }
@@ -93,4 +98,9 @@
 	flex-grow: 1;
 	flex-shrink: 1;
 	padding-bottom: 40px;
+	@include MQ(L) {
+		width: 90%;
+		margin: 0 auto;
+		// padding: 0 30px 40px;
+	}
 }

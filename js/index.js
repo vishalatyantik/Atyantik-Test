@@ -64,6 +64,29 @@ $(window).bind('load', function () {
 		// 	delay: 3000,
 		// 	disableOnInteraction: false,
 		// },
+		breakpoints: {
+			// when window width is >= 320px
+			320: {
+				slidesPerView: 2,
+			},
+			// when window width is >= 480px
+			480: {
+				slidesPerView: 3,
+			},
+			// when window width is >= 640px
+			640: {
+				slidesPerView: 4,
+			},
+			768: {
+				slidesPerView: 5,
+			},
+			1024: {
+				slidesPerView: 6,
+			},
+			1180: {
+				slidesPerView: 7.5,
+			},
+		},
 	});
 
 	/* -------------------------------------------------------------------------- */
@@ -77,6 +100,29 @@ $(window).bind('load', function () {
 		scrollbar: {
 			el: '.swiper-scrollbar',
 			dragSize: 270,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1.5,
+			},
+			480: {
+				slidesPerView: 2,
+			},
+			660: {
+				slidesPerView: 2.5,
+			},
+			768: {
+				slidesPerView: 3,
+			},
+			1024: {
+				slidesPerView: 3.5,
+			},
+			// 1100: {
+			// 	slidesPerView: 3.5,
+			// },
+			1200: {
+				slidesPerView: 4,
+			},
 		},
 	});
 });
