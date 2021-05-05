@@ -13,10 +13,10 @@ $(window).bind('load', function () {
 
 	var heroslider = new Swiper('.hero_slider', {
 		effect: 'fade',
-		// autoplay: {
-		// 	delay: 3000,
-		// 	disableOnInteraction: true,
-		// },
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: true,
+		},
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,
@@ -58,7 +58,7 @@ $(window).bind('load', function () {
 		slidesPerView: 7.5,
 		spaceBetween: 10,
 		loop: true,
-		// mousewheel: true,
+		mousewheel: true,
 		freeMode: true,
 		// autoplay: {
 		// 	delay: 3000,
