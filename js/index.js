@@ -7,19 +7,16 @@ $(window).bind('beforeunload', function () {
 });
 $(window).bind('load', function () {
 	$('.preloader').removeClass('loading');
-});
-$(document).ready(function () {
 	/* -------------------------------------------------------------------------- */
 	/*                              Home Hero Slider                              */
 	/* -------------------------------------------------------------------------- */
 
 	var heroslider = new Swiper('.hero_slider', {
-		spaceBetween: 0,
 		effect: 'fade',
-		autoplay: {
-			delay: 3000,
-			disableOnInteraction: false,
-		},
+		// autoplay: {
+		// 	delay: 3000,
+		// 	disableOnInteraction: true,
+		// },
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,
@@ -57,8 +54,54 @@ $(document).ready(function () {
 	/* -------------------------------------------------------------------------- */
 	/*                               Category Slider                              */
 	/* -------------------------------------------------------------------------- */
-	const catSlider = new Swiper('.catagory_slider', {
+	const catSlider = new Swiper('.all_catagory_slider', {
+		slidesPerView: 7.5,
+		spaceBetween: 10,
 		loop: true,
-		slidesPerView: 'auto',
+		// mousewheel: true,
+		freeMode: true,
+		// autoplay: {
+		// 	delay: 3000,
+		// 	disableOnInteraction: false,
+		// },
 	});
+
+	/* -------------------------------------------------------------------------- */
+	/*                            Category items Slider                           */
+	/* -------------------------------------------------------------------------- */
+	const catItemSlider = new Swiper('.category_product_slider', {
+		slidesPerView: 4,
+		mousewheel: true,
+		freeMode: true,
+		spaceBetween: 10,
+		scrollbar: {
+			el: '.swiper-scrollbar',
+			dragSize: 270,
+		},
+	});
+});
+
+/* -------------------------------------------------------------------------- */
+/*                                MediaQueries                                */
+/* -------------------------------------------------------------------------- */
+
+// var notouchDevices = window.matchMedia("(min-width: 1131px)");
+var mobile = window.matchMedia('(max-width: 960px)');
+function mobileMenu(params) {
+	if (mobile.matches) {
+		$('.auth_container').appendTo('.navbar_menu');
+	} else {
+		$('.auth_container').insertAfter('.navbar_search');
+	}
+	$('.navbar-burger').click(function (e) {
+		$(this).toggleClass('is_active');
+		$('.navbar_menu').toggleClass('is-active');
+		$('html').toggleClass('is-clipped');
+	});
+}
+$(document).ready(function () {
+	mobileMenu();
+});
+$(window).resize(function () {
+	mobileMenu();
 });

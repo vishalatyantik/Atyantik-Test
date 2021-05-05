@@ -13,7 +13,7 @@
 	<meta property="og:description" content="King's Crew Long Beach CBD Oil" />
 	<meta property="og:url" content="" />
 	<meta property="og:site_name" content="Atyantik // Web Designer // Practical Test" />
-	<meta property="og:image" content="" />
+	<meta property="og:image" content="image/og_banner.jpg" />
 	<link rel="apple-touch-icon" sizes="57x57" href="images/favicon_appicon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="images/favicon_appicon//apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="images/favicon_appicon//apple-icon-72x72.png">
@@ -59,20 +59,27 @@
 	<header class="site_header">
 		<div class="container">
 			<nav class="navbar" aria-label="Primary Site Menu">
+				<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="siteMenu">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
 				<h1 class="site_brand">
 					<a href="/">
 						<img src="./images/Kings-Crew-Long-Beach-Website.png" width="152" height="83" alt="King's Crew Long Beach">
 					</a>
 				</h1>
 
-				<ul class="navbar_menu">
-					<li class="navbar_link active_menu_item"><a href="/">Home</a></li>
-					<li class="navbar_link"><a href="/">About</a></li>
-					<li class="navbar_link"><a href="/">Menu</a></li>
-					<li class="navbar_link"><a href="/">Rewards</a></li>
-					<li class="navbar_link"><a href="/">Deals</a></li>
-					<li class="navbar_link"><a href="/">Brands</a></li>
-				</ul>
+				<div id="siteMenu" class="navbar_menu">
+					<ul>
+						<li class="navbar_link active_menu_item"><a href="/">Home</a></li>
+						<li class="navbar_link"><a href="/">About</a></li>
+						<li class="navbar_link"><a href="/">Menu</a></li>
+						<li class="navbar_link"><a href="/">Rewards</a></li>
+						<li class="navbar_link"><a href="/">Deals</a></li>
+						<li class="navbar_link"><a href="/">Brands</a></li>
+					</ul>
+				</div>
 
 				<div class="navbar_end">
 					<button class="navbar_search" aria-label="site search button"><img src="./images/search.svg" alt="Search icon"><span class="is-sr-only">Search</span></button>
@@ -80,78 +87,56 @@
 						<a href="" class="user_login">Login</a>
 						<a href="" class="user_signup">Sign up</a>
 					</div>
-					<a href="" class="user_cart_btn"><img src="./images/cart-white.svg" alt=""><span class="is-sr-only">Cart</span></a>
+					<p class="user_cart_btn">
+						<a href=""><img src="./images/cart-white.svg" alt=""><span class="is-sr-only">Cart</span></a>
+					</p>
 				</div>
 			</nav>
 		</div>
 	</header>
 
 	<main>
-
-		<!-- ----------------------------------------------------------------------- -->
-		<!--                             Home page Hero                              -->
-		<!-- ----------------------------------------------------------------------- -->
+		<!-- Site Hero -->
 		<section class="site_hero" role="banner" aria-label="Site Hero Slider">
-			<!-- Slider main container -->
 			<div class="hero_slider swiper-container">
-				<!-- Additional required wrapper -->
 				<div class="swiper-wrapper">
-					<!-- Slides -->
 					<div class="swiper-slide">
-						<figure>
-							<img src="images/Hero-banner1.jpg" alt="">
-							<figcaption>
-								<div class="slider_content">
-									<h2>CBD on Deck Demo 1</h2>
-									<p>Papa &amp; Barkley back in stock along with many CBD options!</p>
-									<a href="/" class="button">Shop now</a>
-								</div>
-							</figcaption>
-						</figure>
+						<div class="slider_content" style="background: url(images/Hero-banner1.jpg) center / cover no-repeat;">
+							<h2>CBD on Deck Demo 1</h2>
+							<p>Papa &amp; Barkley back in stock along with many CBD options!</p>
+							<a href="/" class="button">Shop now</a>
+						</div>
 					</div>
 					<div class="swiper-slide">
-						<figure>
-							<img src="images/Hero-banner2.jpg" alt="">
-							<figcaption>
-								<div class="slider_content">
-									<h2>CBD on Deck Demo 2</h2>
-									<p>Papa &amp; Barkley back in stock along with many CBD options!</p>
-									<a href="/" class="button">Shop now</a>
-								</div>
-							</figcaption>
-						</figure>
+						<div class="slider_content" style="background: url(images/Hero-banner2.jpg) center / cover no-repeat;">
+							<h2>CBD on Deck Demo 2</h2>
+							<p>Papa &amp; Barkley back in stock along with many CBD options!</p>
+							<a href="/" class="button">Shop now</a>
+						</div>
 					</div>
 					<div class="swiper-slide">
-						<figure>
-							<img src="images/Hero-banner3.jpg" alt="">
-							<figcaption>
-								<div class="slider_content">
-									<h2>CBD on Deck Demo 3</h2>
-									<p>Papa &amp; Barkley back in stock along with many CBD options!</p>
-									<a href="/" class="button">Shop now</a>
-								</div>
-							</figcaption>
-						</figure>
+						<div class="slider_content" style="background: url(images/Hero-banner3.jpg) center / cover no-repeat;">
+							<h2>CBD on Deck Demo 3</h2>
+							<p>Papa &amp; Barkley back in stock along with many CBD options!</p>
+							<a href="/" class="button">Shop now</a>
+						</div>
 					</div>
 				</div>
 				<div class="swiper-pagination"></div>
 			</div>
 		</section>
 
-		<!-- ----------------------------------------------------------------------- -->
-		<!--                             Category Slider                             -->
-		<!-- ----------------------------------------------------------------------- -->
+		<!-- All categories -->
 		<section>
-			<!-- Slider main container -->
-			<div class="catagory_slider swiper-container">
-				<!-- Additional required wrapper -->
+			<div class="all_catagory_slider swiper-container">
 				<div class="swiper-wrapper">
-					<!-- Slides -->
 					<div class="swiper-slide">
 						<a href="">
 							<figure>
 								<img src="./images/flower.jpg" alt="">
-								<figcaption>Flower</figcaption>
+								<figcaption>
+									<h4>Flower</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
@@ -159,7 +144,9 @@
 						<a href="">
 							<figure>
 								<img src="./images/island-classic.jpg" alt="">
-								<figcaption>Pre-Rolls</figcaption>
+								<figcaption>
+									<h4>Pre-Rolls</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
@@ -167,7 +154,9 @@
 						<a href="">
 							<figure>
 								<img src="./images/calm.jpg" alt="">
-								<figcaption>Vaporizers</figcaption>
+								<figcaption>
+									<h4>Vaporizers</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
@@ -175,7 +164,9 @@
 						<a href="">
 							<figure>
 								<img src="./images/flavor-concentrate.jpg" alt="">
-								<figcaption>Concentrates</figcaption>
+								<figcaption>
+									<h4>Concentrates</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
@@ -183,7 +174,9 @@
 						<a href="">
 							<figure>
 								<img src="./images/kiva-camino.jpg" alt="">
-								<figcaption>Edibles</figcaption>
+								<figcaption>
+									<h4>Edibles</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
@@ -191,7 +184,9 @@
 						<a href="">
 							<figure>
 								<img src="./images/dosist-bliss.jpg" alt="">
-								<figcaption>Capsules / Tablets</figcaption>
+								<figcaption>
+									<h4>Capsules / Tablets</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
@@ -199,7 +194,9 @@
 						<a href="">
 							<figure>
 								<img src="./images/tinctures.jpg" alt="">
-								<figcaption>Tincures</figcaption>
+								<figcaption>
+									<h4>Tincures</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
@@ -207,16 +204,163 @@
 						<a href="">
 							<figure>
 								<img src="./images/appothecanna.jpg" alt="">
-								<figcaption>Topicals</figcaption>
+								<figcaption>
+									<h4>Topicals</h4>
+								</figcaption>
 							</figure>
 						</a>
 					</div>
 				</div>
 			</div>
 		</section>
+
+
+		<!-- category section -->
+		<section class="category_section">
+			<div class="category_row">
+
+				<div class="category_details">
+					<div>
+						<h2 class="category_name">Preroll</h2>
+						<p><a href="/">View All 9 items <img src="images/arrow.svg" alt=""></a></p>
+						<a href="/" class="button">Shop Pre-rolls</a>
+					</div>
+				</div>
+
+				<div class="category_product_slider swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="cat_product" data-strainpill="hybrid">
+								<a href="/">
+									<figure class="cat_product_image">
+										<img src="images/flower-banana.jpg" alt="">
+									</figure>
+									<div class="cat_product_detail">
+										<p class="product_PotencyInfo">
+											<span>THC 82.3%</span>
+											<span>CBD 0.1%</span>
+										</p>
+										<p class="product_name">Strawberry Banana</p>
+										<p class="product_price">$36-$55</p>
+									</div>
+								</a>
+								<p class="product_add_to_cart">
+									<a href="/"><img src="images/add-to-cart.svg" alt=""><span class="is-sr-only">Add to cart</span></a>
+								</p>
+								<p class="product_qck_view">
+									<button class="button">Quick view</button>
+								</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cat_product" data-strainpill="sativa">
+								<a href="/">
+									<figure class="cat_product_image">
+										<img src="images/kiva-infused.jpg" alt="">
+									</figure>
+									<div class="cat_product_detail">
+										<p class="product_brand">Lowell Farm</p>
+										<p class="product_name">Milk Chocolate Bar 100mg</p>
+										<p class="product_price">$15</p>
+									</div>
+								</a>
+								<p class="product_add_to_cart">
+									<a href="/"><img src="images/add-to-cart.svg" alt=""><span class="is-sr-only">Add to cart</span></a>
+								</p>
+								<p class="product_qck_view">
+									<button class="button">Quick view</button>
+								</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cat_product" data-strainpill="indica">
+								<a href="/">
+									<figure class="cat_product_image">
+										<img src="images/dosist-relief.jpg" alt="">
+									</figure>
+									<div class="cat_product_detail">
+										<p class="product_PotencyInfo">
+											<span>CBD 0.1%</span>
+										</p>
+										<p class="product_brand">Dosist</p>
+										<p class="product_name">Relief pen - 100 doses</p>
+										<p class="product_price">$54</p>
+									</div>
+								</a>
+								<p class="product_add_to_cart">
+									<a href="/"><img src="images/add-to-cart.svg" alt=""><span class="is-sr-only">Add to cart</span></a>
+								</p>
+								<p class="product_qck_view">
+									<button class="button">Quick view</button>
+								</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cat_product" data-strainpill="other">
+								<a href="/">
+									<figure class="cat_product_image">
+										<img src="images/hybrid-top-shelf-3.5-grams.jpg" alt="">
+									</figure>
+									<div class="cat_product_detail">
+										<p class="product_PotencyInfo">
+											<span>THC 82.3%</span>
+											<span>CBD 0.1%</span>
+										</p>
+										<p class="product_brand">Lowell Farm</p>
+										<p class="product_name">Hybrid Top Shelf 3.5 grams</p>
+										<p class="product_price">$49</p>
+									</div>
+								</a>
+								<p class="product_add_to_cart">
+									<a href="/"><img src="images/add-to-cart.svg" alt=""><span class="is-sr-only">Add to cart</span></a>
+								</p>
+								<p class="product_qck_view">
+									<button class="button">Quick view</button>
+								</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cat_product" data-strainpill="hybrid">
+								<a href="/">
+									<figure class="cat_product_image">
+										<img src="images/flower-banana.jpg" alt="">
+									</figure>
+									<div class="cat_product_detail">
+										<p class="product_PotencyInfo">
+											<span>THC 82.3%</span>
+											<span>CBD 0.1%</span>
+										</p>
+										<p class="product_brand">Lowell Farm</p>
+										<p class="product_name">Strawberry Banana</p>
+										<p class="product_price">$36-$55</p>
+									</div>
+								</a>
+								<p class="product_add_to_cart">
+									<a href="/"><img src="images/add-to-cart.svg" alt=""><span class="is-sr-only">Add to cart</span></a>
+								</p>
+								<p class="product_qck_view">
+									<button class="button">Quick view</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- If we need scrollbar -->
+					<div class="swiper-scrollbar"></div>
+				</div>
+			</div>
+		</section>
+
+
+		<section class="category_thumb_sec">
+			<ul>
+				<li><a href="/" style="background-image: url(images/cartridges.png);"><span>Cartridges</span></a></li>
+				<li><a href="/" style="background-image: url(images/good-sativa.png);"><span>Pre-rolls</span></a></li>
+				<li><a href="/" style="background-image: url(images/kiva.png);"><span>Edibles</span></a></li>
+			</ul>
+		</section>
 	</main>
 	<script src="js/plugins.js"></script>
-	<script src="js//index.js"></script>
+	<script src="js/index.js"></script>
 </body>
 
 </html>

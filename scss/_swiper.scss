@@ -388,7 +388,7 @@ button.swiper-pagination-bullet {
 	border-radius: 10px;
 	position: relative;
 	-ms-touch-action: none;
-	background: rgba(0, 0, 0, 0.1);
+	background: #f0f1f1;
 }
 .swiper-container-horizontal > .swiper-scrollbar {
 	position: absolute;
@@ -410,7 +410,7 @@ button.swiper-pagination-bullet {
 	height: 100%;
 	width: 100%;
 	position: relative;
-	background: rgba(0, 0, 0, 0.5);
+	background: $green;
 	border-radius: 10px;
 	left: 0;
 	top: 0;

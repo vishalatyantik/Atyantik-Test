@@ -3,12 +3,19 @@ body {
 	color: $black;
 }
 main {
-	min-height: 200vh;
+	min-height: 100vh;
 }
 .container {
 	width: 1351px;
 	margin: 0 auto;
 	padding: 0 50px;
+	max-width: 100%;
+	@include MQ(1180px) {
+		padding: 0 30px;
+	}
+	@include MQ(480px) {
+		padding: 0 15px;
+	}
 }
 a {
 	text-decoration: none;

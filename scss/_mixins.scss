@@ -63,7 +63,7 @@
 // breakpoints
 
 $S: 767px;
-$M: 1023px;
+$M: 960px;
 $L: 1024px;
 $base_width: null;
 // media queries
@@ -92,7 +92,7 @@ $base_width: null;
 }
 
 @function vw($target) {
-	$vw-context: (1920 * 0.01) * 1px;
+	$vw-context: (1351 * 0.01) * 1px;
 	@return ($target / $vw-context) * 1vw;
 }
 
