@@ -1,0 +1,57 @@
+.home_hero {
+	background: linear-gradient(
+			to top,
+			rgba(#bebebe, 0.5),
+			rgba(#eee, 0.5) 50%,
+			rgba(#d2d2d2, 0.5)
+		)
+		center no-repeat;
+}
+
+.home_feat_card {
+	width: 272px;
+	height: 100%;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 1rem;
+	text-align: center;
+	background: linear-gradient(to top, rgba(#fff, 0.5), rgba(#bcbcbc, 0.5))
+		center no-repeat;
+	h6 {
+		font-size: fs(22px);
+		font-weight: 900;
+		line-height: 1.1;
+		margin-bottom: 0.5em;
+	}
+	p {
+		font-size: fs(13px);
+	}
+}
+
+.vmax_feat_grad {
+	padding: 4rem 2rem;
+	border-radius: fs(35px);
+	background: linear-gradient(
+			to top,
+			rgba(#bebebe, 0.3),
+			rgba(#eee, 0.3) 50%,
+			rgba(#d2d2d2, 0.3)
+		)
+		center no-repeat;
+
+	h3 {
+		font-size: fs(30px);
+		line-height: 1;
+		margin-bottom: 0.5em;
+		small {
+			font-size: 20px/30px * 1em;
+			display: block;
+		}
+	}
+}
+
+.get_start_sec {
+	img {
+		margin-top: -20%;
+	}
+}

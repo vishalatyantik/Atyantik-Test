@@ -1,0 +1,23 @@
+body {
+	font-family: 'SF Pro Text';
+	color: $black;
+}
+main {
+	min-height: 200vh;
+}
+.container {
+	width: 1351px;
+	margin: 0 auto;
+	padding: 0 50px;
+}
+a {
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+button {
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	padding: 0;
+}

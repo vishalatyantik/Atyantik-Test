@@ -1,0 +1,625 @@
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-font-size);
+	$u4: unit($max-font-size);
+
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+		& {
+			font-size: $min-font-size;
+			@media screen and (min-width: $min-vw) {
+				font-size: calc(
+					#{$min-font-size} + #{strip-unit(
+							$max-font-size - $min-font-size
+						)} *
+						(
+							(100vw - #{$min-vw}) / #{strip-unit(
+									$max-vw - $min-vw
+								)}
+						)
+				);
+			}
+			@media screen and (min-width: $max-vw) {
+				font-size: $max-font-size;
+			}
+		}
+	}
+}
+
+@mixin for-phone-only {
+	@media (max-width: 599px) {
+		@content;
+	}
+}
+
+@mixin for-tablet-portrait-up {
+	@media (min-width: 600px) {
+		@content;
+	}
+}
+
+@mixin for-tablet-landscape-up {
+	@media (min-width: 900px) {
+		@content;
+	}
+}
+
+@mixin for-desktop-up {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin for-big-desktop-up {
+	@media (min-width: 1800px) {
+		@content;
+	}
+}
+
+// breakpoints
+
+$S: 767px;
+$M: 1023px;
+$L: 1024px;
+$base_width: null;
+// media queries
+
+@mixin MQ($canvas) {
+	@if $canvas==S {
+		// $base_width: $S;
+		@media only screen and (max-width: $S) {
+			@content;
+		}
+	} @else if $canvas==M {
+		// $base_width: $M;
+		@media only screen and (max-width: $M) {
+			@content;
+		}
+	} @else if $canvas==L {
+		// $base_width: $L;
+		@media only screen and (max-width: $L) {
+			@content;
+		}
+	} @else {
+		@media only screen and (max-width: $canvas) {
+			@content;
+		}
+	}
+}
+
+@function vw($target) {
+	$vw-context: (1920 * 0.01) * 1px;
+	@return ($target / $vw-context) * 1vw;
+}
+
+@function vh($target) {
+	$vw-context: (1080 * 0.01) * 1px;
+	@return ($target / $vw-context) * 1vh;
+}
+
+@function ls($target) {
+	@return ($target / 1000px) * 1em;
+	//letter-spacing: ls(80px);
+}
+
+@function ps($target) {
+	$vw-context: (1920 * 0.01) * 1px;
+	@return ($target / $vw-context) * 1%;
+}
+
+// Convert pixels to rems
+// @mixin fs($target) {
+// 	// @return ($target / 16px) * 1rem;
+// 	font-size: ($target)*1px;
+// 	font-size: ($target / 16) * 1rem;
+// }
+
+@function fs($target) {
+	@return ($target / 16px) * 1rem;
+}
+
+@mixin placeholder {
+	&.placeholder {
+		@content;
+	}
+
+	&:-moz-placeholder {
+		@content;
+	}
+
+	&::-moz-placeholder {
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		@content;
+	}
+
+	&::-webkit-input-placeholder {
+		@content;
+	}
+}
+
+@mixin center-pos {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: '';
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) -
+		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+// link Hover State
+// 	@include hover-state {
+// 		text-decoration: underline;
+// 	}
+@mixin hover {
+	@media (hover: hover) and (pointer: fine) {
+		&:hover,
+		&:active {
+			@content;
+		}
+	}
+}
+
+/*
+	Margin / Padding Quick Resets
+	example: top & bottom margin set to $spacing-unit
+	.element {
+		@include push--ends;
+	}
+	example: left & right padding set to $spacing-unit--small
+	.element {
+		@include soft--sides($spacing-unit--small);
+	}
+*/
+// add/remove margins
+@mixin push--ends($spacing: $spacing-unit) {
+	margin: {
+		top: $spacing;
+		bottom: $spacing;
+	}
+}
+
+@mixin push--sides($spacing: $spacing-unit) {
+	margin: {
+		left: $spacing;
+		right: $spacing;
+	}
+}
+
+@mixin push--auto {
+	margin: {
+		left: auto;
+		right: auto;
+	}
+}
+
+@mixin offset--sides($spacing: $spacing-unit) {
+	margin: {
+		left: -$spacing;
+		right: -$spacing;
+	}
+}
+
+@mixin flush--ends {
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin flush--sides {
+	margin: {
+		left: 0;
+		right: 0;
+	}
+}
+
+// add/remove paddings
+@mixin soft--ends($spacing: $spacing-unit) {
+	padding: {
+		top: $spacing;
+		bottom: $spacing;
+	}
+}
+
+@mixin soft--sides($spacing: $spacing-unit) {
+	padding: {
+		left: $spacing;
+		right: $spacing;
+	}
+}
+
+@mixin hard--ends {
+	padding: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin hard--sides {
+	padding: {
+		left: 0;
+		right: 0;
+	}
+}
+
+/*
+	Retina images
+	example:
+	.element {
+		@include retina {
+			background-image: url(../img/background@2x.png);
+		}
+	}
+*/
+@mixin retina {
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+		only screen and (-moz-min-device-pixel-ratio: 1.5),
+		only screen and (-o-min-device-pixel-ratio: 3 / 2),
+		only screen and (min-device-pixel-ratio: 1.5),
+		only screen and (min-resolution: 1.5dppx) {
+		@content;
+	}
+}
+
+/*
+	Hide text
+	example:
+	.element {
+		@include hide-text;
+	}
+*/
+@mixin hide-text(
+	$break: false,
+	$indent: 200%,
+	$align: left,
+	$overflow: hidden
+) {
+	@if $break {
+		position: absolute;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+	}
+
+	text: {
+		indent: $indent;
+		align: $align;
+	}
+
+	font-size: 0;
+	white-space: nowrap;
+
+	@if $overflow {
+		overflow: $overflow;
+	}
+}
+
+/*
+	Responsive ratio
+	Used for creating scalable elements that maintain the same ratio
+	example:
+	.element {
+		@include responsive-ratio(400, 300);
+	}
+*/
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+	$padding: unquote(($y / $x) * 100 + '%');
+
+	@if $pseudo {
+		&::before {
+			@include pseudo($pos: relative);
+			width: 100%;
+			padding-top: $padding;
+		}
+	} @else {
+		padding-top: $padding;
+	}
+}
+
+/*
+	Typography
+	Text image replacement, with responsive ratio
+	HTML:
+	<h1 class="element">
+		<span>Text to replace</span>
+	</h1>
+	example:
+	.element {
+		@include typography(200, 50, 'hello-world');
+	}
+*/
+@mixin typography($w, $h, $file, $type: png, $overflow: hidden) {
+	@include responsive-ratio($w, $h, true);
+	position: relative;
+	max-width: $w * 1px;
+	background: url('../images/typography/#{$file}.#{$type}') 50% 50% no-repeat;
+	background-size: contain;
+
+	span {
+		@include hide-text(true, $overflow: $overflow);
+	}
+}
+
+/*
+	Icon
+	For using fontastic icons in pseudo elements
+*/
+@mixin icon-css($content: false) {
+	@if $content {
+		content: '#{$content}';
+	}
+
+	display: block;
+	font-family: 'icon-font-family' !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*
+	Fluid Property
+	http://www.adrenalinmedia.com.au/the-agency/insights/this-changes-everything-css-fluid-properties.aspx
+	HTML:
+	<h1 class="element">
+		<span>Text to replace</span>
+	</h1>
+	example:
+	h1 {
+		@include fp(font-size, 50, 100); // 50px at 320, 100px at 1920;
+	}
+	output:
+	h1 {
+		font-size: calc(3.125vw + 40px); //This is the magic!
+	}
+	@media (max-width:320px){ //Clips the start to the min value
+		font-size:50px;
+	}
+	@media (min-width:1920px){ //Clips the end to the max value
+		font-size:100px;
+	}
+*/
+@mixin fp(
+	$property,
+	$min,
+	$max,
+	$start: 320,
+	$end: breakpoint('desktop'),
+	$clip: true,
+	$clipAtStart: true,
+	$clipAtEnd: true
+) {
+	$start: $start / ($start * 0 + 1);
+	$end: $end / ($end * 0 + 1);
+	$multiplier: ($max - $min) / ($end - $start) * 100;
+	$adder: ($min * $end - $max * $start) / ($end - $start);
+	$formula: calc(#{$multiplier + 0vw}+#{$adder + 0px});
+
+	@if $clip and $clipAtStart {
+		@media (max-width: #{$start + 0px}) {
+			#{$property}: $min + 0px;
+		}
+	}
+
+	@if $clip and $clipAtEnd {
+		@media (min-width: #{$end + 0px}) {
+			#{$property}: $max + 0px;
+		}
+	}
+
+	#{$property}: $formula;
+}
+
+/*
+	Misc
+*/
+@mixin align($vertical: true, $horizontal: false, $position: relative) {
+	@if $position {
+		position: $position;
+	}
+
+	@if $vertical {
+		top: 50%;
+	}
+
+	@if $horizontal {
+		left: 50%;
+	}
+
+	@if $vertical and $horizontal {
+		transform: translateX(-50%) translateY(-50%);
+	} @else if $vertical {
+		transform: translateY(-50%);
+	} @else {
+		transform: translateX(-50%);
+	}
+}
+
+@mixin antialias {
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin appearance($val: none) {
+	-webkit-appearance: $val;
+	-moz-appearance: $val;
+	appearance: $val;
+}
+
+@mixin hardware($backface: true, $perspective: 1000) {
+	@if $backface {
+		backface-visibility: hidden;
+	}
+
+	perspective: $perspective;
+}
+
+@mixin truncate($truncation-boundary) {
+	max-width: $truncation-boundary;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin no-select {
+	-webkit-touch-callout: none;
+	user-select: none;
+}
+
+@mixin lhCrop($line-height, $capital-letter: 1) {
+	&::before {
+		content: '';
+		display: block;
+		height: 0;
+		width: 0;
+		margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+	}
+}
+
+@mixin text-crop(
+	$line-height: 1.3,
+	$top-adjustment: 0px,
+	$bottom-adjustment: 0px
+) {
+	// Configured in Step 1
+	$top-crop: 3;
+	$bottom-crop: 5;
+	$crop-font-size: 32;
+	$crop-line-height: 1;
+
+	// Apply values to calculate em-based margins that work with any font size
+	$dynamic-top-crop: max(
+			(
+				$top-crop + ($line-height - $crop-line-height) *
+					($crop-font-size / 2)
+			),
+			0
+		) / $crop-font-size;
+	$dynamic-bottom-crop: max(
+			(
+				$bottom-crop + ($line-height - $crop-line-height) *
+					($crop-font-size / 2)
+			),
+			0
+		) / $crop-font-size;
+
+	// Mixin output
+	line-height: $line-height;
+
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		height: 0;
+		width: 0;
+	}
+
+	&::before {
+		margin-bottom: calc(-#{$dynamic-top-crop}em+#{$top-adjustment});
+	}
+
+	&::after {
+		margin-top: calc(-#{$dynamic-bottom-crop}em+#{$bottom-adjustment});
+	}
+}
+
+// Mixin generated at: http://text-crop.eightshapes.com/?typeface-selection=custom-font&typeface=Lato&custom-typeface-name=Novecento%20sans%20wide&custom-typeface-url=&custom-typeface-weight=600&custom-typeface-style=normal&weight-and-style=100&size=32&line-height=1&top-crop=3&bottom-crop=4
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(
+				str-slice($string, $index + str-length($search)),
+				$search,
+				$replace
+			);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face(
+	$name,
+	$path,
+	$weight: null,
+	$style: null,
+	$exts: eot woff2 woff ttf svg
+) {
+	$src: null;
+
+	$extmods: (
+		eot: '?',
+		svg: '#' + str-replace($name, ' ', '_'),
+	);
+
+	$formats: (
+		otf: 'opentype',
+		ttf: 'truetype',
+	);
+
+	@each $ext in $exts {
+		$extmod: if(
+			map-has-key($extmods, $ext),
+			$ext + map-get($extmods, $ext),
+			$ext
+		);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append(
+			$src,
+			url(quote($path + '.' + $extmod)) format(quote($format)),
+			comma
+		);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}

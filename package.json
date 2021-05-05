@@ -1,0 +1,30 @@
+{
+  "name": "atyantik_webdesigner_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "autoprefixer": "postcss --use autoprefixer --output css/style.css css/style.css",
+    "scss": "node-sass scss/style.scss css/style.css --output-style compressed --watch --source-map true",
+    "imagemin": "imagemin images/**/* --out-dir=images/ --plugin=mozjpeg --plugin=pngquant --plugin=svgo --plugin=gifsicle",
+    "build:css": "run-s scss autoprefixer",
+    "build:images": "run-s imagemin",
+    "build": "run-s build:*",
+    "watch:css": "onchange \"scss\" -- run-s build:css",
+    "watch:images": "onchange \"images\" -- run-s build:images",
+    "start": "run-p watch:css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "imagemin-cli": "^6.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^8.3.1",
+    "yarn-run-all": "^3.1.1"
+  }
+}

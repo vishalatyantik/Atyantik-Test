@@ -1,0 +1,34 @@
+.is-sr-only {
+	border: none !important;
+	clip: rect(0, 0, 0, 0) !important;
+	height: 0.01em !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	white-space: nowrap !important;
+	width: 0.01em !important;
+}
+.button {
+	background: $green;
+	border: 2px solid $green;
+	border-radius: 6px;
+	min-width: 155px;
+	height: 43px;
+	font-family: 'SF UI Text';
+	font-weight: 800;
+	font-size: 11px;
+	line-height: 13px;
+	letter-spacing: 0.275px;
+	display: inline-flex;
+	color: #fff;
+	text-transform: uppercase;
+	align-items: center;
+	justify-content: center;
+	transition-property: background-color, color;
+	transition-duration: 0.3s;
+	transition-timing-function: ease;
+	@include hover {
+		background-color: transparent;
+		color: $green;
+	}
+}

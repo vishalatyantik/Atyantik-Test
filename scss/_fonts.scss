@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('../fonts/SFProText-Regular.woff2') format('woff2'),
+		url('../fonts/SFProText-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('../fonts/SFProText-Bold.woff2') format('woff2'),
+		url('../fonts/SFProText-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('../fonts/SFProText-Semibold.woff2') format('woff2'),
+		url('../fonts/SFProText-Semibold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SF UI Text';
+	src: url('../fonts/SFUIText-Heavy.woff2') format('woff2'),
+		url('../fonts/SFUIText-Heavy.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
